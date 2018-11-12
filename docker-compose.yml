@@ -2,6 +2,6 @@ version: "2"
 services:
   build-image:
     build: ./
-    image: turner-build
+    image: turnersead/build:drupal8
     stdin_open: true
     tty: true
