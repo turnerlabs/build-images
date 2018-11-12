@@ -1,0 +1,7 @@
+version: "2"
+services:
+  build-image:
+    build: ./
+    image: turner-build
+    stdin_open: true
+    tty: true
