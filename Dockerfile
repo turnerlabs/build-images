@@ -32,6 +32,7 @@ RUN wget "https://nodejs.org/download/release/v$NODE_VERSION/node-v$NODE_VERSION
     && ln -s /usr/local/bin/node /usr/local/bin/nodejs \
     && rm -fr /var/lib/apt/lists/* /tmp/* /var/tmp/*
 
+RUN npm install -g serverless
 
 RUN chmod o+w /tmp
 
