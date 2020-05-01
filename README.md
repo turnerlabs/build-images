@@ -1,3 +1,3 @@
-# AWS CodeBuild Application Testing Image
+# AWS CodeBuild Infrastructure Testing Image
 
-Alpine image to be used with the CodeBuild application testing builds.
+Alpine image to be used with the CodeBuild infrastructure testing builds.
