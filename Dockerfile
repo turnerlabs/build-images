@@ -6,6 +6,7 @@ RUN apk update \
     curl \
     git \
     libzip-tools \
+    python3 \
     && curl "https://s3.amazonaws.com/aws-cli/awscli-bundle.zip" -o "/tmp/awscli-bundle.zip" \
     && cd "/tmp" \
     && unzip "awscli-bundle.zip" \
