@@ -12,4 +12,4 @@ RUN apk update \
     && ./awscli-bundle/install -i "/usr/local/aws" -b "/usr/local/bin/aws" \
     && rm -rf "/tmp/awscli-bundle.zip" \
     && rm -rf "/tmp/awscli-bundle" \
-    && rm -rf "/var/cache/apk/*""
+    && rm -rf "/var/cache/apk/*"
