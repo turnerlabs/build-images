@@ -1,12 +1,9 @@
-FROM docker:18.06.1-ce-dind
+FROM alpine:latest
 
-RUN chmod o+w /tmp
-
-RUN addgroup docker
-
-VOLUME /var/lib/docker
-
-EXPOSE 2375
-
-ENTRYPOINT []
-CMD ["/usr/local/bin/dockerd-entrypoint.sh"]
+RUN apk update \
+    && apk upgrade \
+    && apk add --no-cache \
+    aws-cli \
+    git \
+    libzip-tools \
+    && rm -rf /var/cache/apk/*
