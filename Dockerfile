@@ -6,11 +6,16 @@ RUN apk update \
     curl \
     git \
     libzip-tools \
-    python3 \
-    && curl "https://s3.amazonaws.com/aws-cli/awscli-bundle.zip" -o "/tmp/awscli-bundle.zip" \
-    && cd "/tmp" \
-    && unzip "awscli-bundle.zip" \
-    && ./awscli-bundle/install -i "/usr/local/aws" -b "/usr/local/bin/aws" \
-    && rm -rf "/tmp/awscli-bundle.zip" \
-    && rm -rf "/tmp/awscli-bundle" \
-    && rm -rf "/var/cache/apk/*"
+    python \
+    python-dev \
+    py-pip \
+    build-base \
+    && pip install awscli --upgrade --user \
+    && ln -s /root/.local/bin/aws /bin/aws \
+    && apk --purge -v del py-pip \
+    && rm -rf /var/cache/apk/*
+
+RUN aws --version \
+    && curl --version \
+    && git --version \
+    && python --version
