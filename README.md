@@ -1,3 +1,3 @@
 # AWS CodeBuild Application Testing Image
 
-Alpine image to be used with the CodeBuild application testing build.
+Docker in Docker image to be used with the CodeBuild application testing build.

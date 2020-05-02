@@ -21,7 +21,11 @@ RUN apk update \
 
 RUN aws --version \
     && curl --version \
+    && docker -v \
+    && docker-compose --version \
     && git --version \
     && echo "npm: $(npm --version)" \
     && echo "node: $(node --version)" \
-    && echo python --version
+    && echo python --version \
+    && zip -v \
+    && zipcmp -V
