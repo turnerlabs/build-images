@@ -5,6 +5,7 @@ RUN apk update \
     && apk add --no-cache \
     curl \
     git \
+    jq \
     zip \
     libzip-tools \
     python \
@@ -16,9 +17,11 @@ RUN apk update \
     && apk --purge -v del py-pip \
     && rm -rf /var/cache/apk/*
 
-RUN aws --version \
+RUN echo "alpine version: $(cat /etc/alpine-release)" \
+    && aws --version \
     && curl --version \
     && git --version \
+    && jq -V \
     && python --version \
     && echo "zip: $(zip -v)" \
     && zipcmp -V
