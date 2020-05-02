@@ -1,7 +1,7 @@
 version: "2"
 services:
   build-image:
-    build: ./
-    image: turner-build:orchestrator
+    # build: ./
+    image: turnersead/build-images:v1-orchestrator
     stdin_open: true
     tty: true

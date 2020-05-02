@@ -5,6 +5,7 @@ RUN apk update \
     && apk add --no-cache \
     curl \
     git \
+    zip \
     libzip-tools \
     python \
     python-dev \
