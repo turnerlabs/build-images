@@ -20,7 +20,8 @@ RUN apk update \
     && apk --purge -v del py-pip \
     && rm -rf /var/cache/apk/*
 
-RUN aws --version \
+RUN echo "alpine version: $(cat /etc/alpine-release)" \
+    && aws --version \
     && curl --version \
     && docker -v \
     && docker-compose --version \
