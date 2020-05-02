@@ -1,10 +1,13 @@
-FROM alpine:latest
+FROM docker:latest
 
 RUN apk update \
     && apk upgrade \
     && apk add --no-cache \
     curl \
+    docker-compose \
     git \
+    nodejs \
+    nodejs-npm \
     zip \
     libzip-tools \
     python \
@@ -19,4 +22,6 @@ RUN apk update \
 RUN aws --version \
     && curl --version \
     && git --version \
-    && python --version
+    && echo "npm: $(npm --version)" \
+    && echo "node: $(node --version)" \
+    && echo python --version
