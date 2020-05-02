@@ -5,6 +5,8 @@ RUN apk update \
     && apk add --no-cache \
     curl \
     git \
+    nodejs \
+    nodejs-npm \
     zip \
     libzip-tools \
     python \
@@ -19,4 +21,8 @@ RUN apk update \
 RUN aws --version \
     && curl --version \
     && git --version \
-    && python --version
+    && echo "npm: $(npm --version)" \
+    && echo "node: $(node --version)" \
+    && echo python --version \
+    && echo "zip $(zip -v)" \ 
+    && zipcmp -V
