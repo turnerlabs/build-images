@@ -5,6 +5,7 @@ RUN apk update \
     && apk add --no-cache \
     curl \
     git \
+    jq \
     nodejs \
     nodejs-npm \
     zip \
@@ -21,6 +22,7 @@ RUN apk update \
 RUN aws --version \
     && curl --version \
     && git --version \
+    && jq -V \
     && echo "npm: $(npm --version)" \
     && echo "node: $(node --version)" \
     && echo python --version \
