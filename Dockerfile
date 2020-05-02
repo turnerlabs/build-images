@@ -19,4 +19,6 @@ RUN apk update \
 RUN aws --version \
     && curl --version \
     && git --version \
-    && python --version
+    && python --version \
+    && echo "zip: $(zip -v)" \
+    && zipcmp -V
