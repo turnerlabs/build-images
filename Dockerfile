@@ -6,6 +6,7 @@ RUN apk update \
     curl \
     docker-compose \
     git \
+    jq \
     nodejs \
     nodejs-npm \
     zip \
@@ -24,6 +25,7 @@ RUN aws --version \
     && docker -v \
     && docker-compose --version \
     && git --version \
+    && jq -V \
     && echo "npm: $(npm --version)" \
     && echo "node: $(node --version)" \
     && echo python --version \
