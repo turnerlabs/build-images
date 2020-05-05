@@ -34,5 +34,4 @@ RUN echo "alpine version: $(cat /etc/alpine-release)" \
     && zip -v \
     && zipcmp -V
 
-ENTRYPOINT []
-CMD ["dockerd-entrypoint.sh"]
+CMD ["dockerd"]
