@@ -9,6 +9,7 @@ RUN apk update \
     jq \
     nodejs \
     nodejs-npm \
+    openssl \
     zip \
     libzip-tools \
     python \
