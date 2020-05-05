@@ -1,8 +1,9 @@
-FROM docker:latest
+FROM docker:stable-dind
 
 RUN apk update \
     && apk upgrade \
     && apk add --no-cache \
+    coreutils \
     curl \
     docker-compose \
     git \
