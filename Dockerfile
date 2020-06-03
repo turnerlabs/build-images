@@ -53,14 +53,7 @@ RUN export NEWRELIC_VERSION=$(curl -sS https://download.newrelic.com/php_agent/r
   && gzip -dc newrelic.tar.gz | tar xf - \
   && cd $NEWRELIC_VERSION \
   && NR_INSTALL_SILENT=true NR_INSTALL_USE_CP_NOT_LN=true ./newrelic-install install \
-  && rm -rf $NEWRELIC_VERSION \
-# Download/Install  Signal Sciences Agent
-  && mkdir -p /opt/sigsci \
-  && cd /opt/sigsci \
-  && wget https://dl.signalsciences.net/sigsci-agent/sigsci-agent_latest.tar.gz && tar -xzf sigsci-agent_latest.tar.gz \
-  && wget https://dl.signalsciences.net/sigsci-module-nginx/sigsci-module-nginx_latest.tar.gz && tar -xzf sigsci-module-nginx_latest.tar.gz \
-  && mv sigsci-module-nginx nginx \
-  && rm *.gz && chown -R root:root *
+  && rm -rf $NEWRELIC_VERSION 
 
 # Install composer
 RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer \
