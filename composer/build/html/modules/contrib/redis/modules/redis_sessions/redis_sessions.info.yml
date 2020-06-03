@@ -1,0 +1,8 @@
+name: "Redis Sessions"
+description: "A module to change PHP's session handling to use Redis"
+package: "Performance and scalability"
+type: module
+version: 1.0
+core: 8.x
+dependencies:
+  - redis

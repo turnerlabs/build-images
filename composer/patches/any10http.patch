@@ -1,0 +1,13 @@
+diff --git a/src/Plugin/QueueWorker/DracoZeusWorkerBase.php b/src/Plugin/QueueWorker/DracoZeusWorkerBase.php
+index 39a6558..579efa9 100644
+--- a/src/Plugin/QueueWorker/DracoZeusWorkerBase.php
++++ b/src/Plugin/QueueWorker/DracoZeusWorkerBase.php
+@@ -232,7 +232,7 @@ abstract class DracoZeusWorkerBase extends QueueWorkerBase implements DracoZeusQ
+     else {
+       // Perform a check to ensure each asset actually exists.
+       foreach ($assets as $asset) {
+-        if (!is_file($asset->getPath())) {
++        if (strpos($asset->getPath(), '//any10http1.turner.com') === FALSE && !is_file($asset->getPath())) {
+           throw new AssetMissingException($this->job, $asset);
+         }
+       }

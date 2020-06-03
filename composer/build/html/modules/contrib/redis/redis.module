@@ -1,0 +1,69 @@
+<?php
+
+/**
+ * @file
+ * Redis module.
+ *
+ * This file is a placeholder for other modules that need the Redis client for
+ * something else than lock and cache.
+ */
+
+use Drupal\Core\Routing\RouteMatchInterface;
+use Drupal\redis\ClientFactory;
+
+/**
+ * Implements hook_help().
+ */
+function redis_help($route_name, RouteMatchInterface $route_match) {
+  switch ($route_name) {
+    case 'help.page.redis':
+      if (ClientFactory::hasClient()) {
+        $messages = '<p><strong>' . t("Current connected client uses the <em>@name</em> library.", array('@name' => ClientFactory::getClientName())) . '</strong></p>';
+      }
+      else {
+        $messages = '<p><strong>' . t('No redis connection configured.') . '</strong></p>';
+      }
+      return $messages;
+  }
+}
+
+/**
+ * Implements hook_cache_flush().
+ */
+function redis_cache_flush() {
+  if (ClientFactory::hasClient()) {
+    $redis = ClientFactory::getClient();
+
+    // Get the database index to use. If not set, simply abort by returning.
+    $redisConnectionSettings = \Drupal\Core\Site\Settings::get('redis.connection');
+    if (!isset($redisConnectionSettings['base'])) {
+      return;
+    }
+
+    $redisDatabaseIndex = $redisConnectionSettings['base'];
+
+    // Safety checks.
+    if (!$redisDatabaseIndex || !is_numeric($redisDatabaseIndex)
+        || $redisDatabaseIndex < 0 || $redisDatabaseIndex > 15) {
+      return;
+    }
+
+    // Select the database index they've configured in settings.php.
+    $redis->select($redisDatabaseIndex);
+
+    // Get the cache prefix or prefixes.
+    $prefix = \Drupal\Core\Site\Settings::get('cache_prefix');
+
+    // Delete any keys found, handling arrays of prefixes/bins as well.
+    if (!is_array($prefix)) {
+      $keys = $redis->keys('*' . $prefix . '*');
+      $redis->delete($keys);
+    }
+    else {
+      foreach ($prefix as $bin => $p) {
+        $keys = $redis->keys('*' . $p . '*');
+        $redis->delete($keys);
+      }
+    }
+  }
+}

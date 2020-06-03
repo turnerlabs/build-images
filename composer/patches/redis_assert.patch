@@ -1,0 +1,13 @@
+diff --git src/Cache/PhpRedis.php src/Cache/PhpRedis.php
+index accaa61..75d9852 100644
+--- src/Cache/PhpRedis.php
++++ src/Cache/PhpRedis.php
+@@ -192,7 +192,7 @@ class PhpRedis extends CacheBase {
+     // Always add a cache tag for the current bin, so that we can use that for
+     // invalidateAll().
+     $tags[] = $this->getTagForBin();
+-    assert('\Drupal\Component\Assertion\Inspector::assertAllStrings($tags)', 'Cache Tags must be strings.');
++    // assert('\Drupal\Component\Assertion\Inspector::assertAllStrings($tags)', 'Cache Tags must be strings.');
+     $hash = array(
+       'cid' => $cid,
+       'created' => round(microtime(TRUE), 3),

@@ -1,0 +1,31 @@
+diff -ruN a/imageapi_optimize/src/Entity/ImageStyleWithPipeline.php b/imageapi_optimize/src/Entity/ImageStyleWithPipeline.php
+--- a/imageapi_optimize/src/Entity/ImageStyleWithPipeline.php	2017-02-05 07:01:08.000000000 -0500
++++ b/imageapi_optimize/src/Entity/ImageStyleWithPipeline.php	2017-02-10 16:59:51.000000000 -0500
+@@ -2,7 +2,7 @@
+ 
+ namespace Drupal\imageapi_optimize\Entity;
+ 
+-use Drupal\image\Entity\ImageStyle;
++use Drupal\remote_stream_wrapper\Entity\ImageStyle;
+ 
+ class ImageStyleWithPipeline extends ImageStyle {
+ 
+diff -ruN a/remote_stream_wrapper/remote_stream_wrapper.module b/remote_stream_wrapper/remote_stream_wrapper.module
+--- a/remote_stream_wrapper/remote_stream_wrapper.module	2016-08-18 14:37:14.000000000 -0400
++++ b/remote_stream_wrapper/remote_stream_wrapper.module	2017-02-10 17:02:39.000000000 -0500
+@@ -3,11 +3,10 @@
+ /**
+  * Implements hook_entity_type_alter().
+  */
+-function remote_stream_wrapper_entity_type_alter(&$entity_types) {
+-  if (isset($entity_types['image_style'])) {
+-    $entity_types['image_style']->setClass('Drupal\remote_stream_wrapper\Entity\ImageStyle');
+-  }
+-}
++/**
++ * +++++++ Update ++++++
++ * imageapi_optimize is applied patch to extend this entity and this hook is removed to avoid override.
++ */
+ 
+ function file_is_scheme_remote($scheme) {
+   if ($wrapper = \Drupal::service('stream_wrapper_manager')->getViaScheme($scheme)) {

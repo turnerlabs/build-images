@@ -1,0 +1,38 @@
+{
+  "name": "nba-drupal-dependencies",
+  "description": "Docker-base drupal tools built with grunt-drupal-tasks and some gulpy sugar.",
+  "version": "1.1.0",
+  "private": true,
+  "main": "bootstrap.js",
+  "scripts": {
+    "build": "gulp build",
+    "watch": "gulp watch"
+  },
+  "dependencies": {
+    "foundation-sites": "6.3.1"
+  },
+  "devDependencies": {
+    "grunt": "^1.0.0",
+    "grunt-phpcbf": "0.1.1",
+    "grunt-drupal-tasks": "~1.0.0",
+    "gulp": "^3.9.1",
+    "gulp-autoprefixer": "^3.1.0",
+    "gulp-cached": "^1.1.0",
+    "gulp-debug": "^3.1.0",
+    "gulp-load-plugins": "^1.2.2",
+    "gulp-rename": "^1.2.2",
+    "gulp-sass": "3.1.0",
+    "gulp-sass-glob": "1.0.8",
+    "gulp-sass-lint": "^1.3.3",
+    "gulp-shell": "^0.5.2",
+    "gulp-size": "^2.1.0",
+    "gulp-sourcemaps": "2.6.1",
+    "imports-loader": "^0.6.5",
+    "normalize-scss": "6.0.0",
+    "zombie": "^4.2.1"
+  },
+  "engines": {
+    "node": "6.10.0",
+    "npm": ">= 3"
+  }
+}

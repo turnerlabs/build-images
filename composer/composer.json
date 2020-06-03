@@ -1,0 +1,238 @@
+{
+  "name": "nba.com",
+  "description": "nba.com",
+  "minimum-stability": "dev",
+  "prefer-stable": true,
+  "repositories": [
+    {
+      "type"    : "package",
+      "package" : {
+          "name"    : "cropper",
+          "version" : "dev-master",
+          "type"    : "drupal-library",
+          "source"  : {
+              "url"       : "https://github.com/fengyuanchen/cropper.git",
+              "type"      : "git",
+              "reference" : "27ea91fc756293d084cece41a0510bfc858a7435"
+          }
+      }
+    },
+    {
+      "type"    : "package",
+      "package" : {
+          "name"    : "chosen",
+          "version" : "1.5.1",
+          "type"    : "drupal-library",
+          "dist"    : {
+              "url"  : "https://github.com/harvesthq/chosen/releases/download/v1.5.1/chosen_v1.5.1.zip",
+              "type" : "zip"
+          }
+      }
+    },
+    {
+      "type"    : "package",
+      "package" : {
+          "name"    : "d3",
+          "version" : "3.5.17",
+          "type"    : "drupal-library",
+          "dist"    : {
+              "url"  : "https://github.com/d3/d3/archive/v3.5.17.zip",
+              "type" : "zip"
+          }
+      }
+    },
+    {
+      "type"    : "package",
+      "package" : {
+          "name"    : "lazy",
+          "version" : "dev-master",
+          "type"    : "drupal-library",
+          "source"  : {
+              "url"       : "https://github.com/aFarkas/lazysizes.git",
+              "type"      : "git",
+              "reference" : "origin/master"
+          }
+      }
+    },
+    {
+      "type"    : "package",
+      "package" : {
+          "name"    : "slick",
+          "version" : "1.6.0",
+          "type"    : "drupal-library",
+          "dist"    : {
+              "url"  : "https://github.com/kenwheeler/slick/archive/1.6.0.zip",
+              "type" : "zip"
+          }
+      }
+    },
+    {
+      "type"    : "package",
+      "package" : {
+        "name"    : "workbench_moderation_actions",
+        "version" : "dev-master",
+        "type"    : "drupal-module",
+        "source"  : {
+            "url"       : "https://github.com/dawehner/workbench_moderation_actions.git",
+            "type"      : "git",
+            "reference" : "7011fd6159c7af1812ab41d71384ab7bfeaf559c"
+        }
+      }
+    },
+    {
+      "type": "composer",
+      "url": "https://packages.drupal.org/8"
+    }
+  ],
+  "require": {
+    "chosen": "1.5.1",
+    "composer/installers": "v1.5.0",
+    "cropper": "dev-master",
+    "cweagans/composer-patches": "1.6.5",
+    "d3": "3.5.17",
+    "donatj/phpuseragentparser": "dev-os_version_detection",
+    "drupal-composer/drupal-scaffold": "2.5.*",
+    "drupal/core": "8.8.*",
+    "drupal/admin_toolbar": "1.16",
+    "drupal/bootstrap": "3.0-beta3",
+    "drupal/chosen": "2.5.0",
+    "drupal/config_update": "^1.7",
+    "drupal/crop": "1.0.0",
+    "drupal/ctools": "^3.2",
+    "drupal/embed": "1.0.0-rc3",
+    "drupal/entity": "1.0.0-beta4",
+    "drupal/entity_browser": "1.5",
+    "drupal/entity_embed": "1.0-beta2",
+    "drupal/entity_reference_revisions": "^1.8",
+    "drupal/features": "3.8",
+    "drupal/field_group": "^3.0",
+    "drupal/file_entity": "2.0.0-beta6",
+    "drupal/imageapi_optimize": "2.0-alpha2",
+    "drupal/image_widget_crop": "1.4.0",
+    "drupal/inline_entity_form": "1.0.0-rc1",
+    "drupal/media_entity": "1.3.0 as 8.1.3",
+    "drupal/media_entity_image": "1.2.0",
+    "drupal/Media_entity_twitter": "1.3.0",
+    "drupal/metatag": "1.0-beta9",
+    "drupal/migrate_plus": "2.0-beta1",
+    "drupal/migrate_source_json": "2.x-dev#bf7d94e08c21c1a81a635d238db915aab69b3d47",
+    "drupal/migrate_tools": "2.0-beta1",
+    "drupal/monolog": "1.0-alpha2",
+    "drupal/paragraphs": "^1.11",
+    "drupal/password_policy": "3.x-dev#451c37bd4edfe87d52f02c47f266e17890a577f3",
+    "drupal/pathauto": "1.6.*",
+    "drupal/redis": "1.0.0-beta1",
+    "drupal/remote_stream_wrapper": "1.0.0 as 8.1",
+    "drupal/special_menu_items": "1.x-dev#ee6c072",
+    "drupal/tablefield": "2.0-alpha1",
+    "drupal/token": "1.1.0",
+    "twig/extensions": "v1.5.1",
+    "drupal/twig_extensions": "1.1.0",
+    "drupal/twig_temp": "1.1.0",
+    "drupal/url_embed": "1.x-dev",
+    "drupal/workbench": "1.0",
+    "drupal/workbench_moderation": "1.3",
+    "drupal/workbench_moderation_actions": "1.x-dev#ed4601373edfdb5ea1306af74f0e825a0c64f5a1",
+    "drupal/zurb_foundation": "6.0.0-alpha1",
+    "drush/drush": "9.4.0",
+    "lazy": "dev-master",
+    "roave/security-advisories": "dev-master",
+    "slick": "1.6.0",
+    "drupal/entity_form_monitor": "1.0-alpha3",
+    "drupal/queue_ui": "2.x-dev#f51ebeaee7648742602ca870bad721bf9f174ba2",
+    "matthiasmullie/minify": "1.3.39",
+    "drupal/views_infinite_scroll": "1.5",
+    "drupal/anchor_link": "1.3",
+    "monolog/monolog": "1.23.0",
+    "drupal/redirect": "1.3",
+    "drupal/entity_usage": "^2.0@alpha",
+    "drupal/textfield_counter": "^1.6",
+    "drupal/s3fs": "^3.0@alpha",
+    "drupal/menu_link_attributes": "^1.0",
+    "drupal/flysystem": "^1.0",
+    "drupal/flysystem_s3": "^1.0@beta",
+    "drupal/restui": "^1.18"
+  },
+  "require-dev": {
+    "drupal/drupal-extension": "v3.4.1",
+    "drupal/console": "^1.8",
+    "phpmd/phpmd": "2.5.0",
+    "squizlabs/php_codesniffer": "2.9.1",
+    "phpunit/phpunit": "6.5.13",
+    "phpunit/phpcov": "@stable",
+    "drupal/coder": "8.2.12",
+    "drupal/devel": "1.2.0",
+    "rregeer/phpunit-coverage-check": "0.1.6"
+  },
+  "scripts": {
+    "drupal-scaffold": "DrupalComposer\\DrupalScaffold\\Plugin::scaffold",
+    "post-install-cmd": [
+      "DrupalComposer\\DrupalScaffold\\Plugin::scaffold"
+    ]
+  },
+  "extra": {
+    "composer-exit-on-patch-failure": true,
+    "installer-paths": {
+      "build/html/core": [
+        "type:drupal-core"
+      ],
+      "build/html/modules/custom/{$name}": [
+        "type:drupal-module-custom"
+      ],
+      "build/html/modules/contrib/{$name}": [
+        "type:drupal-module"
+      ],
+      "build/html/profiles/contrib/{$name}": [
+        "type:drupal-profile"
+      ],
+      "build/html/themes/contrib/{$name}": [
+        "type:drupal-theme"
+      ],
+      "build/html/libraries/{$name}": [
+        "type:drupal-library"
+      ],
+      "drush/contrib/{$name}": [
+        "type:drupal-drush"
+      ]
+    },
+    "patches": {
+      "drupal/workbench_moderation_actions": {
+        "Correctly set revision UUID": "https://www.drupal.org/files/issues/2893699-6-access_and_set_revision_uid_log.patch",
+        "Reset core actions on uninstall": "https://www.drupal.org/files/issues/restore_publish_actions_after_uninstall-2891765-10.patch"
+      },
+      "drupal/migrate_source_json": {
+        "[2660670]": "https://www.drupal.org/files/issues/migrate_source_json-php_7_seg_fault-2660670-3_0.patch"
+      },
+      "drupal/zurb_foundation": {
+        "[2701371]": "https://www.drupal.org/files/issues/zurb_foundation_revision_view_2701371_2_D8.patch"
+      },
+      "drupal/redis": {
+        "[2765895]": "https://www.drupal.org/files/issues/redis-n2765895-16.patch",
+        "[2876099]": "https://www.drupal.org/files/issues/2876099_1_redis_sessions.patch",
+        "Remove assert for cache tags": "patches/redis_assert.patch",
+        "Use persistent connection": "patches/redis_persist.patch"
+      },
+      "drupal/workbench_moderation": {
+        "Fix PHP 7.2 error": "https://www.drupal.org/files/issues/2018-04-16/workbench_moderation_incompatible-declaration_2952717_4.patch"
+      },
+      "monolog/monolog": {
+        "Fix recursion error": "https://patch-diff.githubusercontent.com/raw/Seldaek/monolog/pull/1050.patch"
+      },
+      "drupal/paragraphs_library": {
+        "fix for reusable paragraphs": "https://www.drupal.org/files/issues/convert_a_normal-2847053-52.patch"
+      },
+      "drupal/tablefield": {
+        "fix for reusable paragraphs": "https://www.drupal.org/files/issues/2018-10-23/2922803_24.patch"
+      }
+    }
+  },
+  "config": {
+    "prestissimo": {
+      "verbose": false,
+      "privatePackages": []
+    },
+    "platform": {
+      "php": "7.2.16"
+    }
+  }
+}

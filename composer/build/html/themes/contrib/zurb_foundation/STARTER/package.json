@@ -1,0 +1,17 @@
+{
+  "name": "STARTER",
+  "version": "1.0.0",
+  "devDependencies": {
+    "gulp": "^3.9.0",
+    "gulp-autoprefixer": "^3.1.0",
+    "gulp-load-plugins": "^1.1.0",
+    "gulp-sass": "^2.1.0",
+    "rimraf": "*"
+  },
+  "scripts": {
+    "start": "gulp",
+    "build": "gulp sass",
+    "postinstall": "node_modules/.bin/rimraf node_modules/**/*.info"
+  },
+  "private": true
+}

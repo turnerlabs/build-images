@@ -1,0 +1,14 @@
+name: Flysystem Amazon S3
+description: 'Provides an Amazon S3 plugin for Flysystem.'
+type: module
+# core: 8.x
+# version: 8.0-dev
+package: Flysystem
+dependencies:
+ - flysystem:flysystem
+
+# Information added by Drupal.org packaging script on 2018-10-22
+version: '8.x-1.0-beta1'
+core: '8.x'
+project: 'flysystem_s3'
+datestamp: 1540215491

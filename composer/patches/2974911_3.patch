@@ -1,0 +1,122 @@
+diff --git a/core/modules/simpletest/simpletest.module b/core/modules/simpletest/simpletest.module
+index 4ace6e4594..981c0ca82c 100644
+--- a/core/modules/simpletest/simpletest.module
++++ b/core/modules/simpletest/simpletest.module
+@@ -330,6 +330,11 @@ function simpletest_phpunit_run_command(array $unescaped_test_classnames, $phpun
+   }
+   $phpunit_bin = simpletest_phpunit_command();
+
++  // Add phpdbg if we've collected .cov files.
++  if (!empty($cov_directory = getenv('SIMPLETEST_COV_DIRECTORY'))) {
++    $phpunit_bin = 'phpdbg -qrr ' . $phpunit_bin;
++  }
++
+   $command = [
+     $phpunit_bin,
+     '--log-junit',
+@@ -338,6 +343,12 @@ function simpletest_phpunit_run_command(array $unescaped_test_classnames, $phpun
+     escapeshellarg(SimpletestUiPrinter::class),
+   ];
+
++  // Tell phpunit to make .cov files if it should.
++  if (!empty($cov_directory)) {
++    $command[] = '--coverage-php';
++    $command[] = escapeshellarg($cov_directory . '/' . basename($phpunit_file) . '.cov');
++  }
++
+   // Optimized for running a single test.
+   if (count($unescaped_test_classnames) == 1) {
+     $class = new \ReflectionClass($unescaped_test_classnames[0]);
+diff --git a/core/scripts/run-tests.sh b/core/scripts/run-tests.sh
+index 5dc391e6d5..4fa93ff68c 100644
+--- a/core/scripts/run-tests.sh
++++ b/core/scripts/run-tests.sh
+@@ -47,6 +47,24 @@
+
+ simpletest_script_init();
+
++if ($args['clover']) {
++  $cov_directory = sys_get_temp_dir() . '/simpletest_phpunit_cov';
++  if (!$args['execute-test']) {
++    echo "\nCollecting coverage files in $cov_directory\n";
++  }
++  if (!file_exists($cov_directory)) {
++    mkdir($cov_directory, 0777, TRUE);
++  }
++  else {
++    // If we're not executing one test in a separate process, make sure the
++    // directory is empty.
++    if (!$args['execute-test']) {
++      array_map('unlink', glob($cov_directory . '/*'));
++    }
++  }
++  putenv("SIMPLETEST_COV_DIRECTORY=$cov_directory");
++}
++
+ if (!class_exists(TestCase::class)) {
+   echo "\nrun-tests.sh requires the PHPUnit testing framework. Please use 'composer install' to ensure that it is present.\n\n";
+   exit(SIMPLETEST_SCRIPT_EXIT_FAILURE);
+@@ -179,6 +197,10 @@
+   simpletest_script_reporter_write_xml_results();
+ }
+
++if (!empty($args['clover'])) {
++  simpletest_script_generate_clover($args['clover']);
++}
++
+ // Clean up all test results.
+ if (!$args['keep-results']) {
+   try {
+@@ -387,6 +409,7 @@ function simpletest_script_parse_args() {
+     'test-id' => 0,
+     'execute-test' => '',
+     'xml' => '',
++    'clover' => '',
+     'non-html' => FALSE,
+   ];
+
+@@ -789,6 +812,23 @@ function simpletest_script_execute_batch($test_classes) {
+   return $total_status;
+ }
+
++/**
++ * Use phpdbg and phpconv to aggregate all the coverage information.
++ */
++function simpletest_script_generate_clover($clover_file) {
++  $phpcov = str_replace('phpunit/phpunit/phpunit', 'phpunit/phpcov/phpcov', simpletest_phpunit_command());
++
++  $command = [
++    'phpdbg -qrr',
++    $phpcov,
++    'merge',
++    '--clover',
++    escapeshellarg($clover_file),
++    escapeshellarg(getenv('SIMPLETEST_COV_DIRECTORY')),
++  ];
++  passthru(implode(' ', $command));
++}
++
+ /**
+  * Run a PHPUnit-based test.
+  */
+@@ -830,6 +870,10 @@ function simpletest_script_run_one_test($test_id, $test_class) {
+     if ($args['suppress-deprecations']) {
+       putenv('SYMFONY_DEPRECATIONS_HELPER=disabled');
+     }
++    if ($args['clover']) {
++      $cov_directory = sys_get_temp_dir() . '/simpletest_phpunit_cov';
++      putenv("SIMPLETEST_COV_DIRECTORY=$cov_directory");
++    }
+     if (is_subclass_of($test_class, TestCase::class)) {
+       $status = simpletest_script_run_phpunit($test_id, $test_class);
+     }
+@@ -878,6 +922,9 @@ function simpletest_script_command($test_id, $test_class) {
+   if (!empty($args['dburl'])) {
+     $command .= ' --dburl ' . escapeshellarg($args['dburl']);
+   }
++  if (!empty($args['clover'])) {
++    $command .= ' --clover ' . escapeshellarg($args['clover']);
++  }
+   $command .= ' --php ' . escapeshellarg($php);
+   $command .= " --test-id $test_id";
+   foreach (['verbose', 'keep-results', 'color', 'die-on-fail', 'suppress-deprecations'] as $arg) {

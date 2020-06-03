@@ -1,0 +1,11 @@
+name: 'Entity Form Monitor'
+type: module
+description: 'Warns the user if the entity they are editing has been updated.'
+# core: 8.x
+configure: entity_form_monitor.settings
+
+# Information added by Drupal.org packaging script on 2016-09-21
+version: '8.x-1.0-alpha3'
+core: '8.x'
+project: 'entity_form_monitor'
+datestamp: 1474476540

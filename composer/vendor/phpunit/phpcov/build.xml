@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project name="phpcov" default="setup">
+    <target name="setup" depends="clean,composer"/>
+
+    <target name="clean" description="Cleanup build artifacts">
+        <delete file="${basedir}/composer.lock"/>
+        <delete dir="${basedir}/vendor"/>
+        <delete dir="${basedir}/build/phar"/>
+        <delete>
+            <fileset dir="${basedir}/build">
+                <include name="**/phpcov*.phar"/>
+                <include name="**/phpcov*.phar.asc"/>
+            </fileset>
+        </delete>
+    </target>
+
+    <target name="composer" depends="clean" description="Install dependencies with Composer">
+        <exec executable="composer" taskname="composer">
+            <arg value="update"/>
+            <arg value="--no-interaction"/>
+            <arg value="--no-progress"/>
+            <arg value="--no-ansi"/>
+            <arg value="--no-suggest"/>
+        </exec>
+    </target>
+
+    <target name="signed-phar"
+            description="Create signed PHAR archive of phpcov and all its dependencies (release)"
+            depends="phar">
+        <exec executable="bash" outputproperty="version">
+            <arg value="-c" />
+            <arg value="${basedir}/phpcov --version | awk 'BEGIN { ORS = &quot;&quot;; } {print $2}'" />
+        </exec>
+
+        <exec executable="gpg" failonerror="true">
+            <arg value="--armor" />
+            <arg value="--detach-sign" />
+            <arg path="${basedir}/build/phpcov-${version}.phar" />
+        </exec>
+    </target>
+
+    <target name="phar"
+            description="Create PHAR archive of phpcov and all its dependencies"
+            depends="clean,composer,phar-build">
+        <mkdir dir="${basedir}/build/phar"/>
+    </target>
+
+    <target name="phar-build">
+        <exec executable="bash" outputproperty="version">
+            <arg value="-c"/>
+            <arg value="${basedir}/phpcov --version | awk 'BEGIN { ORS = &quot;&quot;; } {print $2}'"/>
+        </exec>
+
+        <copy todir="${basedir}/build/phar/src">
+            <fileset dir="${basedir}/src">
+                <include name="**/*.php"/>
+            </fileset>
+        </copy>
+
+        <copy todir="${basedir}/build/phar/phpunit">
+            <fileset dir="${basedir}/vendor/phpunit">
+                <include name="**/*.php"/>
+                <include name="php-code-coverage/src/Report/Html/Renderer/Template/**"/>
+                <exclude name="**/build/**"/>
+                <exclude name="**/tests/**"/>
+            </fileset>
+        </copy>
+
+        <copy todir="${basedir}/build/phar/sebastian">
+            <fileset dir="${basedir}/vendor/sebastian">
+                <include name="**/src/*.php"/>
+            </fileset>
+        </copy>
+
+        <copy todir="${basedir}/build/phar/symfony">
+            <fileset dir="${basedir}/vendor/symfony">
+                <include name="**/*.php"/>
+                <exclude name="**/Tests/**"/>
+            </fileset>
+        </copy>
+
+        <copy todir="${basedir}/build/phar/theseer-fdomdocument">
+            <fileset dir="${basedir}/vendor/theseer/fdomdocument/src"/>
+        </copy>
+
+        <copy todir="${basedir}/build/phar/theseer-tokenizer">
+            <fileset dir="${basedir}/vendor/theseer/tokenizer/src"/>
+        </copy>
+
+        <exec executable="${basedir}/build/phar-manifest.php" output="${basedir}/build/phar/manifest.txt"/>
+
+        <exec executable="phpab">
+            <arg value="--all"/>
+            <arg value="--phar"/>
+            <arg value="--output"/>
+            <arg path="${basedir}/build/phpcov-${version}.phar"/>
+            <arg value="--template"/>
+            <arg path="${basedir}/build/phar-autoload.php.in"/>
+            <arg value="--indent"/>
+            <arg value="            "/>
+            <arg path="${basedir}/build/phar"/>
+        </exec>
+
+        <chmod file="${basedir}/build/phpcov-${version}.phar" perm="ugo+rx"/>
+    </target>
+</project>
+

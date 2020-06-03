@@ -1,0 +1,25 @@
+From f5472bbae81421f753f175af268d2165f17b9158 Mon Sep 17 00:00:00 2001
+From: Josh Mullikin <josh.mullikin@turner.com>
+Date: Thu, 27 Oct 2016 14:47:54 -0400
+Subject: [PATCH] persist connection
+
+---
+ src/Client/PhpRedis.php | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/src/Client/PhpRedis.php b/src/Client/PhpRedis.php
+index e60a72c..f474d51 100644
+--- a/src/Client/PhpRedis.php
++++ b/src/Client/PhpRedis.php
+@@ -19,7 +19,7 @@ class PhpRedis implements ClientInterface {
+    */
+   public function getClient($host = NULL, $port = NULL, $base = NULL, $password = NULL) {
+     $client = new \Redis();
+-    $client->connect($host, $port);
++    $client->pconnect($host, $port);
+ 
+     if (isset($password)) {
+       $client->auth($password);
+-- 
+2.10.0
+
