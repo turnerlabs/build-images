@@ -1,5 +1,0 @@
-flysystem.config:
-  title: 'Flysystem'
-  description: 'Configure settings related to Flysystem.'
-  parent: system.file_system_settings
-  route_name: flysystem.config
