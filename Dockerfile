@@ -25,6 +25,7 @@ RUN apk add --no-cache \
   nodejs-npm \
 	optipng \
   patch \
+  redis \
   tzdata \
   vim \
   wget
