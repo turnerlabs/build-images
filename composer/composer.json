@@ -92,7 +92,7 @@
     "d3": "3.5.17",
     "donatj/phpuseragentparser": "dev-os_version_detection",
     "drupal-composer/drupal-scaffold": "2.5.*",
-    "drupal/core": "8.8.*",
+    "drupal/core": "^8.9",
     "drupal/admin_toolbar": "1.16",
     "drupal/bootstrap": "3.0-beta3",
     "drupal/chosen": "2.5.0",
@@ -151,7 +151,8 @@
     "drupal/menu_link_attributes": "^1.0",
     "drupal/flysystem": "^1.0",
     "drupal/flysystem_s3": "^1.0@beta",
-    "drupal/restui": "^1.18"
+    "drupal/restui": "^1.18",
+    "drupal/core-recommended": "8.9.1"
   },
   "require-dev": {
     "drupal/drupal-extension": "v3.4.1",
