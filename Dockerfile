@@ -1,4 +1,4 @@
-FROM node:8-alpine
+FROM node:10-alpine
 
 RUN npm install -g serverless --ignore-scripts spawn-sync
 
