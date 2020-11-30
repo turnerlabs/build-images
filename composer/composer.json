@@ -5,77 +5,77 @@
   "prefer-stable": true,
   "repositories": [
     {
-      "type"    : "package",
-      "package" : {
-          "name"    : "cropper",
-          "version" : "dev-master",
-          "type"    : "drupal-library",
-          "source"  : {
-              "url"       : "https://github.com/fengyuanchen/cropper.git",
-              "type"      : "git",
-              "reference" : "27ea91fc756293d084cece41a0510bfc858a7435"
-          }
+      "type": "package",
+      "package": {
+        "name": "cropper",
+        "version": "dev-master",
+        "type": "drupal-library",
+        "source": {
+          "url": "https://github.com/fengyuanchen/cropper.git",
+          "type": "git",
+          "reference": "27ea91fc756293d084cece41a0510bfc858a7435"
+        }
       }
     },
     {
-      "type"    : "package",
-      "package" : {
-          "name"    : "chosen",
-          "version" : "1.5.1",
-          "type"    : "drupal-library",
-          "dist"    : {
-              "url"  : "https://github.com/harvesthq/chosen/releases/download/v1.5.1/chosen_v1.5.1.zip",
-              "type" : "zip"
-          }
+      "type": "package",
+      "package": {
+        "name": "chosen",
+        "version": "1.5.1",
+        "type": "drupal-library",
+        "dist": {
+          "url": "https://github.com/harvesthq/chosen/releases/download/v1.5.1/chosen_v1.5.1.zip",
+          "type": "zip"
+        }
       }
     },
     {
-      "type"    : "package",
-      "package" : {
-          "name"    : "d3",
-          "version" : "3.5.17",
-          "type"    : "drupal-library",
-          "dist"    : {
-              "url"  : "https://github.com/d3/d3/archive/v3.5.17.zip",
-              "type" : "zip"
-          }
+      "type": "package",
+      "package": {
+        "name": "d3",
+        "version": "3.5.17",
+        "type": "drupal-library",
+        "dist": {
+          "url": "https://github.com/d3/d3/archive/v3.5.17.zip",
+          "type": "zip"
+        }
       }
     },
     {
-      "type"    : "package",
-      "package" : {
-          "name"    : "lazy",
-          "version" : "dev-master",
-          "type"    : "drupal-library",
-          "source"  : {
-              "url"       : "https://github.com/aFarkas/lazysizes.git",
-              "type"      : "git",
-              "reference" : "origin/master"
-          }
+      "type": "package",
+      "package": {
+        "name": "lazy",
+        "version": "dev-master",
+        "type": "drupal-library",
+        "source": {
+          "url": "https://github.com/aFarkas/lazysizes.git",
+          "type": "git",
+          "reference": "origin/master"
+        }
       }
     },
     {
-      "type"    : "package",
-      "package" : {
-          "name"    : "slick",
-          "version" : "1.6.0",
-          "type"    : "drupal-library",
-          "dist"    : {
-              "url"  : "https://github.com/kenwheeler/slick/archive/1.6.0.zip",
-              "type" : "zip"
-          }
+      "type": "package",
+      "package": {
+        "name": "slick",
+        "version": "1.6.0",
+        "type": "drupal-library",
+        "dist": {
+          "url": "https://github.com/kenwheeler/slick/archive/1.6.0.zip",
+          "type": "zip"
+        }
       }
     },
     {
-      "type"    : "package",
-      "package" : {
-        "name"    : "workbench_moderation_actions",
-        "version" : "dev-master",
-        "type"    : "drupal-module",
-        "source"  : {
-            "url"       : "https://github.com/dawehner/workbench_moderation_actions.git",
-            "type"      : "git",
-            "reference" : "7011fd6159c7af1812ab41d71384ab7bfeaf559c"
+      "type": "package",
+      "package": {
+        "name": "workbench_moderation_actions",
+        "version": "dev-master",
+        "type": "drupal-module",
+        "source": {
+          "url": "https://github.com/dawehner/workbench_moderation_actions.git",
+          "type": "git",
+          "reference": "7011fd6159c7af1812ab41d71384ab7bfeaf559c"
         }
       }
     },
@@ -150,7 +150,7 @@
     "drupal/flysystem": "^1.0",
     "drupal/flysystem_s3": "^1.0@beta",
     "drupal/restui": "^1.18",
-    "drupal/core-recommended": "^8.9.6"
+    "drupal/core-recommended": "^8.9.9"
   },
   "require-dev": {
     "drupal/drupal-extension": "v3.4.1",
@@ -228,7 +228,9 @@
   "config": {
     "prestissimo": {
       "verbose": false,
-      "privatePackages": []
+      "privatePackages": [
+        
+      ]
     },
     "platform": {
       "php": "7.2.16"
