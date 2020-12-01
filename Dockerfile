@@ -57,8 +57,8 @@ RUN export NEWRELIC_VERSION=$(curl -sS https://download.newrelic.com/php_agent/r
   && rm -rf $NEWRELIC_VERSION 
 
 # Install composer
-RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer \
-  && composer self-update \
+RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer --version=1.8.0 \
+  #&& composer self-update \
   && composer global require hirak/prestissimo \ 
 # had to remove - https://github.com/drupal-composer/drupal-scaffold/issues/101
   && php -d memory_limit=-1  /usr/local/bin/composer -vvv update -o \

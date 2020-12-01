@@ -1643,6 +1643,7 @@
                 "GPL-2.0-or-later"
             ],
             "description": "Composer Plugin for updating the Drupal scaffold files when using drupal/core",
+            "abandoned": "drupal/core-composer-scaffold",
             "time": "2018-07-27T10:07:07+00:00"
         },
         {
@@ -2012,16 +2013,16 @@
         },
         {
             "name": "drupal/core",
-            "version": "8.9.6",
+            "version": "8.9.10",
             "source": {
                 "type": "git",
                 "url": "https://github.com/drupal/core.git",
-                "reference": "caf4e756d31dfb0c2e52cd0748e900efe4b57766"
+                "reference": "e725c01cdf6fb6d8b330a27fa75caab91034805a"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/drupal/core/zipball/caf4e756d31dfb0c2e52cd0748e900efe4b57766",
-                "reference": "caf4e756d31dfb0c2e52cd0748e900efe4b57766",
+                "url": "https://api.github.com/repos/drupal/core/zipball/e725c01cdf6fb6d8b330a27fa75caab91034805a",
+                "reference": "e725c01cdf6fb6d8b330a27fa75caab91034805a",
                 "shasum": ""
             },
             "require": {
@@ -2048,7 +2049,7 @@
                 "laminas/laminas-diactoros": "^1.8",
                 "laminas/laminas-feed": "^2.12",
                 "masterminds/html5": "^2.1",
-                "pear/archive_tar": "^1.4.9",
+                "pear/archive_tar": "^1.4.11",
                 "php": ">=7.0.8",
                 "psr/log": "^1.0",
                 "stack/builder": "^1.0",
@@ -2239,20 +2240,20 @@
                 "GPL-2.0-or-later"
             ],
             "description": "Drupal is an open source content management platform powering millions of websites and applications.",
-            "time": "2020-09-16T11:22:21+00:00"
+            "time": "2020-11-26T01:49:15+00:00"
         },
         {
             "name": "drupal/core-recommended",
-            "version": "8.9.6",
+            "version": "8.9.10",
             "source": {
                 "type": "git",
                 "url": "https://github.com/drupal/core-recommended.git",
-                "reference": "6c5c4739afc5549e6089ef34b59c712c8872f154"
+                "reference": "106e2a3e6f00f8867d1867e9d7b1376961a264f7"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/drupal/core-recommended/zipball/6c5c4739afc5549e6089ef34b59c712c8872f154",
-                "reference": "6c5c4739afc5549e6089ef34b59c712c8872f154",
+                "url": "https://api.github.com/repos/drupal/core-recommended/zipball/106e2a3e6f00f8867d1867e9d7b1376961a264f7",
+                "reference": "106e2a3e6f00f8867d1867e9d7b1376961a264f7",
                 "shasum": ""
             },
             "require": {
@@ -2264,7 +2265,7 @@
                 "doctrine/common": "v2.7.3",
                 "doctrine/inflector": "v1.2.0",
                 "doctrine/lexer": "1.0.2",
-                "drupal/core": "8.9.6",
+                "drupal/core": "8.9.10",
                 "easyrdf/easyrdf": "0.9.1",
                 "egulias/email-validator": "2.1.17",
                 "guzzlehttp/guzzle": "6.5.4",
@@ -2277,7 +2278,7 @@
                 "laminas/laminas-zendframework-bridge": "1.0.4",
                 "masterminds/html5": "2.3.0",
                 "paragonie/random_compat": "v9.99.99",
-                "pear/archive_tar": "1.4.9",
+                "pear/archive_tar": "1.4.11",
                 "pear/console_getopt": "v1.4.3",
                 "pear/pear-core-minimal": "v1.10.10",
                 "pear/pear_exception": "v1.0.1",
@@ -2321,7 +2322,7 @@
                 "GPL-2.0-or-later"
             ],
             "description": "Locked core dependencies; require this project INSTEAD OF drupal/core.",
-            "time": "2020-09-16T11:22:21+00:00"
+            "time": "2020-11-26T01:49:15+00:00"
         },
         {
             "name": "drupal/crop",
@@ -3691,6 +3692,10 @@
                     "homepage": "https://www.drupal.org/user/205645"
                 },
                 {
+                    "name": "podarok",
+                    "homepage": "https://www.drupal.org/user/116002"
+                },
+                {
                     "name": "slashrsm",
                     "homepage": "https://www.drupal.org/user/744628"
                 }
@@ -3723,7 +3728,8 @@
             },
             "require": {
                 "drupal/core": "~8.0",
-                "drupal/media_entity": "*"
+                "drupal/media_entity": "*",
+                "j7mbo/twitter-api-php": "~1.0"
             },
             "type": "drupal-module",
             "extra": {
@@ -3765,8 +3771,7 @@
             "description": "Media entity Twitter provider.",
             "homepage": "https://www.drupal.org/project/media_entity_twitter",
             "support": {
-                "source": "https://git.drupalcode.org/project/media_entity_twitter",
-                "error": "name : invalid value (drupal-contrib:media_entity_twitter), must match [A-Za-z0-9][A-Za-z0-9_.-]*/[A-Za-z0-9][A-Za-z0-9_.-]*"
+                "source": "https://git.drupalcode.org/project/media_entity_twitter"
             }
         },
         {
@@ -4188,8 +4193,8 @@
                     "dev-3.x": "3.x-dev"
                 },
                 "drupal": {
-                    "version": "8.x-3.0-beta1+1-dev",
-                    "datestamp": "1588338491",
+                    "version": "8.x-3.0-beta1+4-dev",
+                    "datestamp": "1595208035",
                     "security-coverage": {
                         "status": "not-covered",
                         "message": "Dev releases are not covered by Drupal security advisories."
@@ -4298,14 +4303,17 @@
             "require": {
                 "drupal/core": "^8.8 || ^9"
             },
+            "require-dev": {
+                "drupal/queue_order": "^2"
+            },
             "type": "drupal-module",
             "extra": {
                 "branch-alias": {
                     "dev-2.x": "2.x-dev"
                 },
                 "drupal": {
-                    "version": "8.x-2.0+5-dev",
-                    "datestamp": "1588089936",
+                    "version": "8.x-2.1+3-dev",
+                    "datestamp": "1601617377",
                     "security-coverage": {
                         "status": "not-covered",
                         "message": "Dev releases are not covered by Drupal security advisories."
@@ -5833,6 +5841,56 @@
             "time": "2019-07-01T23:21:34+00:00"
         },
         {
+            "name": "j7mbo/twitter-api-php",
+            "version": "1.0.6",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/J7mbo/twitter-api-php.git",
+                "reference": "443d22c53d621b3cc6b7e0c56daa60c5ada033f7"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/J7mbo/twitter-api-php/zipball/443d22c53d621b3cc6b7e0c56daa60c5ada033f7",
+                "reference": "443d22c53d621b3cc6b7e0c56daa60c5ada033f7",
+                "shasum": ""
+            },
+            "require": {
+                "ext-curl": "*"
+            },
+            "require-dev": {
+                "phpunit/phpunit": "~4.5,>=4.5.1"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "1.0-dev"
+                }
+            },
+            "autoload": {
+                "classmap": [
+                    "TwitterAPIExchange.php"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "GNU Public License"
+            ],
+            "authors": [
+                {
+                    "name": "James Mallison",
+                    "homepage": "https://github.com/j7mbo/twitter-api-php"
+                }
+            ],
+            "description": "Simple PHP Wrapper for Twitter API v1.1 calls",
+            "homepage": "https://github.com/j7mbo/twitter-api-php",
+            "keywords": [
+                "api",
+                "php",
+                "twitter"
+            ],
+            "time": "2017-05-08T12:10:56+00:00"
+        },
+        {
             "name": "laminas/laminas-diactoros",
             "version": "1.8.7p2",
             "source": {
@@ -6134,7 +6192,7 @@
                 "reference": "origin/master"
             },
             "type": "drupal-library",
-            "time": "2020-06-10T20:14:38+00:00"
+            "time": "2020-10-24T11:28:05+00:00"
         },
         {
             "name": "league/container",
@@ -6785,16 +6843,16 @@
         },
         {
             "name": "pear/archive_tar",
-            "version": "1.4.9",
+            "version": "1.4.11",
             "source": {
                 "type": "git",
                 "url": "https://github.com/pear/Archive_Tar.git",
-                "reference": "c5b00053770e1d72128252c62c2c1a12c26639f0"
+                "reference": "17d355cb7d3c4ff08e5729f29cd7660145208d9d"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/pear/Archive_Tar/zipball/c5b00053770e1d72128252c62c2c1a12c26639f0",
-                "reference": "c5b00053770e1d72128252c62c2c1a12c26639f0",
+                "url": "https://api.github.com/repos/pear/Archive_Tar/zipball/17d355cb7d3c4ff08e5729f29cd7660145208d9d",
+                "reference": "17d355cb7d3c4ff08e5729f29cd7660145208d9d",
                 "shasum": ""
             },
             "require": {
@@ -6847,7 +6905,7 @@
                 "archive",
                 "tar"
             ],
-            "time": "2019-12-04T10:17:28+00:00"
+            "time": "2020-11-19T22:10:24+00:00"
         },
         {
             "name": "pear/console_getopt",
@@ -9405,6 +9463,7 @@
                 "i18n",
                 "text"
             ],
+            "abandoned": true,
             "time": "2017-06-08T18:19:53+00:00"
         },
         {
@@ -11049,56 +11108,6 @@
                 "webtest"
             ],
             "time": "2019-09-25T09:05:11+00:00"
-        },
-        {
-            "name": "j7mbo/twitter-api-php",
-            "version": "1.0.6",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/J7mbo/twitter-api-php.git",
-                "reference": "443d22c53d621b3cc6b7e0c56daa60c5ada033f7"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/J7mbo/twitter-api-php/zipball/443d22c53d621b3cc6b7e0c56daa60c5ada033f7",
-                "reference": "443d22c53d621b3cc6b7e0c56daa60c5ada033f7",
-                "shasum": ""
-            },
-            "require": {
-                "ext-curl": "*"
-            },
-            "require-dev": {
-                "phpunit/phpunit": "~4.5,>=4.5.1"
-            },
-            "type": "library",
-            "extra": {
-                "branch-alias": {
-                    "dev-master": "1.0-dev"
-                }
-            },
-            "autoload": {
-                "classmap": [
-                    "TwitterAPIExchange.php"
-                ]
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "GNU Public License"
-            ],
-            "authors": [
-                {
-                    "name": "James Mallison",
-                    "homepage": "https://github.com/j7mbo/twitter-api-php"
-                }
-            ],
-            "description": "Simple PHP Wrapper for Twitter API v1.1 calls",
-            "homepage": "https://github.com/j7mbo/twitter-api-php",
-            "keywords": [
-                "api",
-                "php",
-                "twitter"
-            ],
-            "time": "2017-05-08T12:10:56+00:00"
         },
         {
             "name": "myclabs/deep-copy",
