@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "cb087e547633a167670de63882daa30f",
+    "content-hash": "c0ce738146e75065d94fed205cd2f885",
     "packages": [
         {
             "name": "asm89/stack-cors",
@@ -3335,6 +3335,78 @@
             }
         },
         {
+            "name": "drupal/gutenberg",
+            "version": "1.11.0",
+            "source": {
+                "type": "git",
+                "url": "https://git.drupalcode.org/project/gutenberg.git",
+                "reference": "8.x-1.11"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://ftp.drupal.org/files/projects/gutenberg-8.x-1.11.zip",
+                "reference": "8.x-1.11",
+                "shasum": "156ff130a8a30b2165cf5cf2617021e725b15efe"
+            },
+            "require": {
+                "drupal/core": "^8 || ^9"
+            },
+            "type": "drupal-module",
+            "extra": {
+                "drupal": {
+                    "version": "8.x-1.11",
+                    "datestamp": "1587683303",
+                    "security-coverage": {
+                        "status": "covered",
+                        "message": "Covered by Drupal's security advisory policy"
+                    }
+                }
+            },
+            "notification-url": "https://packages.drupal.org/8/downloads",
+            "license": [
+                "GPL-2.0-or-later"
+            ],
+            "authors": [
+                {
+                    "name": "codebymikey",
+                    "homepage": "https://www.drupal.org/user/3573206"
+                },
+                {
+                    "name": "kjankowski",
+                    "homepage": "https://www.drupal.org/user/3564060"
+                },
+                {
+                    "name": "kszarek",
+                    "homepage": "https://www.drupal.org/user/3563337"
+                },
+                {
+                    "name": "marcofernandes",
+                    "homepage": "https://www.drupal.org/user/2127558"
+                },
+                {
+                    "name": "perandre",
+                    "homepage": "https://www.drupal.org/user/221337"
+                },
+                {
+                    "name": "roborn",
+                    "homepage": "https://www.drupal.org/user/139474"
+                },
+                {
+                    "name": "sayco",
+                    "homepage": "https://www.drupal.org/user/3517832"
+                },
+                {
+                    "name": "thorandre",
+                    "homepage": "https://www.drupal.org/user/223878"
+                }
+            ],
+            "description": "Advanced, yet easy to use content editor. Activate it on the content type edit page.",
+            "homepage": "https://www.drupal.org/project/gutenberg",
+            "support": {
+                "source": "https://git.drupalcode.org/project/gutenberg"
+            }
+        },
+        {
             "name": "drupal/image_widget_crop",
             "version": "1.4.0",
             "source": {
@@ -6192,7 +6264,7 @@
                 "reference": "origin/master"
             },
             "type": "drupal-library",
-            "time": "2020-10-24T11:28:05+00:00"
+            "time": "2021-01-02T15:40:07+00:00"
         },
         {
             "name": "league/container",
@@ -9706,12 +9778,12 @@
             "version": "1.9.0",
             "source": {
                 "type": "git",
-                "url": "https://github.com/webmozart/assert.git",
+                "url": "https://github.com/webmozarts/assert.git",
                 "reference": "9dc4f203e36f2b486149058bade43c851dd97451"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/webmozart/assert/zipball/9dc4f203e36f2b486149058bade43c851dd97451",
+                "url": "https://api.github.com/repos/webmozarts/assert/zipball/9dc4f203e36f2b486149058bade43c851dd97451",
                 "reference": "9dc4f203e36f2b486149058bade43c851dd97451",
                 "shasum": ""
             },
@@ -13082,5 +13154,6 @@
     "platform-dev": [],
     "platform-overrides": {
         "php": "7.2.16"
-    }
+    },
+    "plugin-api-version": "1.1.0"
 }
